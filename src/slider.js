@@ -129,8 +129,12 @@ angular.module('ui.slider', []).value('uiSliderConfig',{}).directive('uiSlider',
                 }, true);
 
                 function destroy() {
+                  try {
                     elm.slider('destroy');
+                  } catch (err) {
+                  }
                 }
+                
                 scope.$on("$destroy", function() {
                     destroy();
                 });
